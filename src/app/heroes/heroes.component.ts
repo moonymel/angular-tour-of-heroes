@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Hero } from './heroes';
+import { HEROES } from '../mock-heroes';
 
 @Component({
   selector: 'app-heroes',
@@ -13,5 +14,8 @@ export class HeroesComponent {
     id: 1,
     name: 'Miss Marvel'
   };
+
+  // dichiaro l'array heroes su modello di HEROES
+  heroes = HEROES;
 
 }

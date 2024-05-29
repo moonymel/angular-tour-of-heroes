@@ -4,3 +4,13 @@
 Wanna change her name? Type here:
 <!-- per bindare il nome dell'hero, uso la formula [(ngModel)]="hero.name" -->
 <input type="text" name="hero-name" id="hero-name" [(ngModel)]="hero.name">
+
+<div>
+    <h2>All the Heroes</h2>:
+    <ul>
+        <!-- ciclo tutti gli elementi dell'array heroes come singoli hero usando la formula *ngFor per il ciclo for e la sintassi let elem of array -->
+        <li *ngFor="let hero of heroes">
+            <span class="badge">{{ hero.id }}</span> {{ hero.name }}
+        </li>
+    </ul>
+</div>
