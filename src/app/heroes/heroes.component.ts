@@ -38,8 +38,16 @@ export class HeroesComponent {
   }
 
   // definisco la funzione getHeroes che riempie l'array heroes tramite la funzione getHeroes di HeroService (qui dichiarata come heroService)
+  // getHeroes(): void {
+  //   this.heroes = this.heroService.getHeroes();
+  // }
+
   getHeroes(): void {
-    this.heroes = this.heroService.getHeroes();
+    this.heroService.getHeroes()
+      .subscribe(x => {
+        this.heroes = x;
+        console.log(x);
+      })
   }
 
 }
