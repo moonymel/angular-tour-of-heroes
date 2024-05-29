@@ -1,1 +1,6 @@
-{{ hero.name | uppercase }} is super cool! She has id number {{ hero.id }}.
+{{ hero.name | uppercase }} is super cool! She has id number {{ hero.id }}.<br>
+
+
+Wanna change her name? Type here:
+<!-- per bindare il nome dell'hero, uso la formula [(ngModel)]="hero.name" -->
+<input type="text" name="hero-name" id="hero-name" [(ngModel)]="hero.name">
