@@ -18,4 +18,11 @@ export class HeroesComponent {
   // dichiaro l'array heroes su modello di HEROES
   heroes = HEROES;
 
+  // definisco la proprietà selectedHero di type Hero che può non essere non assegnata
+  selectedHero?: Hero;
+
+  onSelected(hero: Hero): void {
+    this.selectedHero = hero;
+  }
+
 }
