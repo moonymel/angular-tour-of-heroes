@@ -10,19 +10,12 @@ Wanna change her name? Type here:
     <ul class="heroes">
         <!-- ciclo tutti gli elementi dell'array heroes come singoli hero usando la formula *ngFor per il ciclo for e la sintassi "let elem of array" -->
         <!-- (click) crea un evento click con la funzione -->
-        <li *ngFor="let hero of heroes" (click)="onSelected(hero)">
+        <!-- [class.selected] aggiunge la classe selected per le condizioni specificate -->
+        <li *ngFor="let hero of heroes" (click)="onSelected(hero)" [class.selected]="hero === selectedHero">
             <span class="badge">{{ hero.id }}</span> {{ hero.name }}
         </li>
     </ul>
 </div>
 
-<!-- se selectedHero esiste allora: -->
-<div *ngIf="selectedHero">
-    <h2>{{ selectedHero.name | uppercase }} Details</h2>
-    id: {{ selectedHero.id }}
-    <div>
-        <label for="hero-name"></label>
-        <input type="text" name="hero-name" id="hero-name" [(ngModel)]="selectedHero.name" placeholder="name">
-
-    </div>
-</div>
+<!-- aggiungo la componente dei dettagli passando selectedHero come hero  -->
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>

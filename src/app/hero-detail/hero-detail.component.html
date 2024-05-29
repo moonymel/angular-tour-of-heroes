@@ -1,0 +1,9 @@
+<!-- se hero (che era selectedHero nella componente padre) esiste allora: -->
+<div *ngIf="hero">
+    <h2>{{ hero.name | uppercase }} Details</h2>
+    id: {{ hero.id }}
+    <div>
+        <label for="hero-name"></label>
+        <input type="text" name="hero-name" id="hero-name" [(ngModel)]="hero.name" placeholder="name">
+    </div>
+</div>
