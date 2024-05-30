@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Hero } from './heroes/heroes';
 import { HEROES } from './mock-heroes';
+import { MessageService } from './message.service';
 
 // questa metadata è iniettabile in altre classi (@Injectable)
 // quando è providedIn: root, angular lo rende iniettabile in ogni classe che la richiede
@@ -11,7 +12,8 @@ import { HEROES } from './mock-heroes';
 })
 export class HeroService {
 
-  constructor() { }
+  // rendo iniettabile MessageService qui con la variabile messageService
+  constructor(private messageService: MessageService) { }
 
   // definisco una funzione che richiama il type Hero array e ritorna l'array HEROES mock
   // getHeroes(): Hero[] {
@@ -21,6 +23,8 @@ export class HeroService {
   // definisco una funzione che richiama il type Hero e lo rende observable, sintassi simile alla chiamata api: osserva e aspetta dati
   getHeroes(): Observable<Hero[]> {
     const heroes = of(HEROES);
+    // aggiungo il messaggio come informazione bindabile
+    this.messageService.add('The HeroService Fetched the Heroes');
     return heroes;
   }
 }
